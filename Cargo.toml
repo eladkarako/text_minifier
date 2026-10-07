@@ -1,0 +1,35 @@
+[package]
+name = "text_minifier"
+version = "26.10.7"
+edition = "2024"
+authors = ["Elad Karako <eladkarako@gmail.com>"]
+categories = ["command-line-utilities"]
+description = "convert structural text into human readable one, cleanup and minify spacing to a single line."
+documentation = "https://github.com/eladkarako/text_minifier#readme"
+homepage = "https://github.com/eladkarako/text_minifier"
+keywords = ["text-editing", "scraper", "string-manipulation", "cli"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/eladkarako/text_minifier"
+rust-version = "1.93.0"
+
+[dependencies]
+clap = { version = "4.6.7", features = ["derive"] }
+html-escape = "0.2.15"
+pulldown-cmark = "0.13.4"
+scraper = "0.27.0"
+ego-tree = "0.11.0"
+
+[build-dependencies]
+toml = "1.1.6"                                                      # TOML parsing for build scripts
+winres = "0.1.12"                                                   # Windows resource file handling (exe metadata, icons, version info)
+
+[profile.release]
+codegen-units = 1                                                   # Single unit for better optimization and smaller binary size
+debug = false                                                       # Strip debug symbols for smaller binary
+incremental = false                                                 # Disable incremental compilation for cleaner builds
+lto = true                                                          # Link-time optimization for better performance
+opt-level = "z"                                                     # Maximum optimization for binary size (prioritize size over speed)
+panic = "abort"                                                     # Replace unwinding with abort (smaller binary, faster panics)
+rpath = false                                                       # Don't embed runtime library search paths
+strip = true                                                        # Strip all symbols from final binary

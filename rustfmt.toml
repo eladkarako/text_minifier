@@ -1,0 +1,32 @@
+# rustfmt.toml
+
+# Use the stable Rust formatting style.
+style_edition = "2024"
+
+# Keep lines reasonably readable.
+max_width = 69
+
+# Expand small functions and expressions onto multiple lines.
+use_small_heuristics = "Max"
+
+# Put function arguments on separate lines when necessary.
+fn_params_layout = "Vertical"
+
+# Keep imports grouped and readable.
+reorder_imports = true
+reorder_modules = true
+
+# Use spaces instead of tabs.
+hard_tabs = false
+tab_spaces = 4
+
+# remove a trailing comma to multiline expressions.
+trailing_comma = "Never"
+
+# Keep comments formatted where possible.
+wrap_comments = true
+comment_width = 80
+
+ignore = [
+    ".cargo/config.toml",
+]

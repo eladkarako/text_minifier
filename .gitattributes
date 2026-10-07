@@ -1,0 +1,5 @@
+#makes sure end-of-line for Windows specific files is kept `\r\n` .
+
+*.cmd         text      eol=crlf
+
+*.manifest    text      eol=crlf
